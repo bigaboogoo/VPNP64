@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPNP64 - Web Proxy & Archive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌐 VPNP64</h1>
+            <p class="subtitle">Web Proxy & Internet Archive - Access websites 24/7</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Proxy Input Section -->
+            <div class="proxy-section">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="urlInput" 
+                        placeholder="Enter URL (e.g., https://example.com)" 
+                        class="url-input"
+                    >
+                    <button id="fetchBtn" class="btn btn-primary">Access via Proxy</button>
+                </div>
+                <div class="input-options">
+                    <label>
+                        <input type="checkbox" id="enableCache"> Use Cache if Available
+                    </label>
+                </div>
+            </div>
+
+            <!-- Stats Dashboard -->
+            <div class="stats-section">
+                <h3>📊 Cache Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Cache Hits</span>
+                        <span class="stat-value" id="statHits">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Cache Misses</span>
+                        <span class="stat-value" id="statMisses">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Hit Rate</span>
+                        <span class="stat-value" id="statHitRate">0%</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Cached Pages</span>
+                        <span class="stat-value" id="statCached">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cached Pages List -->
+            <div class="cache-list-section">
+                <div class="section-header">
+                    <h3>📑 Recently Cached Pages</h3>
+                    <button id="refreshCacheBtn" class="btn btn-small">Refresh</button>
+                    <button id="clearCacheBtn" class="btn btn-danger btn-small">Clear All</button>
+                </div>
+                <div id="cacheList" class="cache-list"></div>
+            </div>
+
+            <!-- Loading & Messages -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Loading page...</p>
+            </div>
+            <div id="message" class="message hidden"></div>
+
+            <!-- Proxy Frame -->
+            <div id="proxyFrame" class="proxy-frame hidden">
+                <div class="frame-header">
+                    <span id="frameUrl" class="frame-url"></span>
+                    <span id="frameStatus" class="frame-status"></span>
+                    <button id="closeFrameBtn" class="btn btn-small">Close</button>
+                </div>
+                <iframe id="contentFrame" class="content-frame"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
